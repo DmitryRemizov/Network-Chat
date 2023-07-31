@@ -47,14 +47,6 @@ public class Server extends Thread{
             out.flush();
             while (true) {
                 message = in.readLine();
-                try {
-                    if (message.equals("/exit")) {
-                        this.downSocket();
-                        break;
-                    }
-                }
-                catch (NullPointerException ignored) {
-                }
                 writeFileServer(message);
                 System.out.println(message);
                 for (Server vr : serverList) {
